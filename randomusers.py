@@ -580,7 +580,14 @@ def get_full_names(data: dict) -> list[str]:
     Returns:
         list[str]: List of full names.
     """
-    pass
+    full_names = []
+    for user in data['results']:
+        full_name = user['name']['first'] + ' ' + user['name']['last']
+        full_names.append(full_name)
+
+    return full_names
+
+print(get_full_names(randomuser_data))
 
 
 def get_users_by_country(data: dict, country: str) -> list[dict]:
@@ -732,11 +739,11 @@ def get_registered_before_year(data: dict, year: int) -> list[dict]:
     pass
 
 
-def run_functions() -> None:
-    """
-    Runs and prints results of all data processing functions for demonstration purposes.
-    """
-    print("Full Names:", get_full_names(randomuser_data))
+# def run_functions() -> None:
+#     """
+#     Runs and prints results of all data processing functions for demonstration purposes.
+#     """
+#     print("Full Names:", get_full_names(randomuser_data))
 
 
-run_functions()
+# run_functions()
